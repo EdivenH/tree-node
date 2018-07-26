@@ -13,7 +13,7 @@ const data = React.createContext(total);
 export default class MoneyContainer extends Component{
     constructor(props) {
         super(props)
-        //this.handleChangeMoney = this.handleChangeMoney.bind(this)
+        this.handleChangeMoney = this.handleChangeMoney.bind(this)
         this.state = {
             data: total,
             money: total.money,
@@ -21,11 +21,11 @@ export default class MoneyContainer extends Component{
             childrens: total.childrens
         }
     }
-    // handleChangeMoney(value){
-    //     this.setState({
-    //         remainMoney: this.state.remainMoney - value
-    //     })
-    // }
+    handleChangeMoney(value){
+        this.setState({
+            remainMoney: this.state.remainMoney - value
+        })
+    }
     render(){
         return(
 
@@ -105,7 +105,7 @@ class ChildContainer extends Component{
 
     }
     handleChangeConnect(value){
-        this.props.changeMoney(value)
+        console.log('==>', value)
     }
     render(){
         const childrens = this.state.childrens
@@ -134,7 +134,7 @@ class ChildNode extends Component{
         this.handleMoneyChange = this.handleMoneyChange.bind(this)
         this.state = {
             label: this.props.data.label,
-            money: this.props.money,
+            money: this.props.data.money,
             remainMoney: this.props.data.remainMoney
         }
 
@@ -145,18 +145,16 @@ class ChildNode extends Component{
         })
     }
     handleMoneyChange(e){
-        const remainMoney = this.state.remainMoney
-        this.setState({
-            money: e.target.value
-        })
-
-        if(e.target.value > remainMoney){
+        if(e.target.value > this.state.remainMoney){
+            this.setState(pre => ({
+                money: pre.remainMoney
+            }), ()=>this.props.changeMoney(this.state.money))
+        }else{
             this.setState({
-                money: remainMoney
-            })
+                money: e.target.value
+            }, ()=>this.props.changeMoney(this.state.money))
         }
-
-        this.props.changeMoney(this.state.money)
+        
     }
 
     render(){
@@ -173,7 +171,7 @@ class ChildNode extends Component{
                     <div>
                         <label>
                             <input type="text"
-                                value={this.state.money}
+                                
                                 onChange={this.handleMoneyChange}
                                 placeholder="请输入虚拟币数量"/>
                             </label>

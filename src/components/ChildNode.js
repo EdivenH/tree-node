@@ -56,6 +56,16 @@ export default class ChildNode extends Component{
         })
 
     }
+    handleRemoveChild = (index) => {
+
+        this.setState(() => (
+            this.state.childrens.splice(index, 1)
+        ))
+    }
+    handleRemoveThis = () => {
+        this.props.removeChild(this.state.index)
+    }
+
     static getDerivedStateFromProps(props, state){
         console.log('this FromProps==>', state.childrens)
         return {
@@ -78,6 +88,8 @@ export default class ChildNode extends Component{
             <div className="child-node" style={{
                 paddingBottom: "10px"
             }}>
+                <div className="node-del" 
+                    onClick={this.handleRemoveThis}>x</div>
                 <div className="col-line" style={ColLine}></div>
                 <div className="row-line" style={RowLine}></div>
                 <div className="node-input">
@@ -96,6 +108,7 @@ export default class ChildNode extends Component{
                                     changeLabel={this.handleChangeLabel} 
                                     changeHeight={this.handleChangeHeight} 
                                     changeParent={this.handleAddParent}
+                                    removeChild={this.handleRemoveChild}
                                     key={shortid.generate()}/>
                             )
                         }):
@@ -117,15 +130,6 @@ export default class ChildNode extends Component{
                         </div>):null
                     }
                 </div>
-                <style jsx='true'>{
-                    `
-                        .child-node{
-                            position: relative;
-                            display: flex;
-                            
-                        }
-                    `
-                    }</style>
                 </div>
         )
     }

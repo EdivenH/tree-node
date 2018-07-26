@@ -48,20 +48,23 @@ export default class Container extends Component{
             childrens: sourceData.childrens,
         })
     }
+    handleRemoveChild = (index) => {
+
+        this.setState(() => (
+            this.state.childrens.splice(index, 1)
+        ))
+    }
     // componentDidMount() {
     //     this.state.data.childrens = this.state.childrens
     // }
 
     render(){
-        const data = this.state.data
-        console.log("data==>", data)
         
         const childrens = this.state.childrens
-        console.log("childrens==>", childrens)
         const element = (childrens && childrens.length>0)?
             childrens.map((val, index) => {
                 return(
-                    <ParentNode data={val} index={index} changeLabel={this.handleChangeLabel} key={shortid.generate()}/>
+                    <ParentNode data={val} index={index} changeLabel={this.handleChangeLabel} removeChild={this.handleRemoveChild} key={shortid.generate()}/>
                 )
             }):null
 
@@ -119,11 +122,16 @@ class ParentNode extends Component{
     }
     handleChangeHeight(){
         console.log('parentHandle')
-        // const Sigle = 32  + 10;
-        // let height = calHeight(Sigle, this.state.childrens)
-        // this.setState({
-        //     height: height
-        // })
+
+    }
+    handleRemoveChild = (index) => {
+
+        this.setState(() => (
+            this.state.childrens.splice(index, 1)
+        ))
+    }
+    handleRemoveThis = () => {
+        this.props.removeChild(this.state.index)
     }
     
     componentWillMount(){
@@ -144,6 +152,8 @@ class ParentNode extends Component{
 
         return(
             <div className="parent-node">
+                <div className="node-del" 
+                    onClick={this.handleRemoveThis}>x</div>
                 <div className="row-line" style={RowLine}></div>
                 <div className="node-input">
                     <input type="text"
@@ -156,7 +166,8 @@ class ParentNode extends Component{
                     {(childrens && childrens.length>0)?
                         childrens.map((val, index) => {
                             return (
-                                <ChildNode data={val} index={index} changeLabel={this.handleChangeLabel} changeHeight={this.handleChangeHeight} key={shortid.generate()}/>
+                                <ChildNode data={val} index={index} changeLabel={this.handleChangeLabel} removeChild={this.handleRemoveChild} 
+                                changeHeight={this.handleChangeHeight} key={shortid.generate()}/>
                             )
                         }):
                         (
@@ -186,6 +197,25 @@ class ParentNode extends Component{
                             position: relative;
                             display: flex;
                             padding: 10px 0;
+                        }
+                        .child-node{
+                            position: relative;
+                            display: flex;
+                            
+                        }
+                        .node-del{
+                            position: absolute;
+                            height: 15px;
+                            width: 15px;
+                            left: 15px;
+                            font-size: 12px;
+                            margin-top: -10px;
+                            text-align: center;
+                            cursor: pointer;
+                            opacity: 0;
+                        }
+                        .child-node:hover > .node-del{
+                            opacity: 1;
                         }
                     `
                 }</style>
