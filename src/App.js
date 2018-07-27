@@ -1,20 +1,51 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import fetch from 'cross-fetch';
+import NodeContainer from './components/NodeContainer'
+
+import data from './tools'
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      nodes: data.nodes
+    }
+  }
+  componentDidMount(){
+    // fetch('123', {
+    //   method: 'GET'
+    // })
+    // .then((response) => {
+    //   if(response.status !== 200){
+    //     throw new Error('Bad response from server!!')
+    //   }
+    //   const nodes = response.json()
+    //   this.setState({
+    //     nodes
+    //   })
+    // }, (error) => {
+    //   throw new Error(error)
+    // })
+    this.setState({
+      nodes: data.nodes
+    })
+  }
+  handleAddNode = () => {
+
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="node-panel">
+        <NodeContainer nodes={this.state.nodes} />
+        <style jsx='true'>
+          {`
+            .node-panel{
+              padding: 10px;
+            }
+          `}
+        </style>
       </div>
-    );
+    )
   }
 }
 

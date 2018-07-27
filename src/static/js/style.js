@@ -10,9 +10,10 @@ const RowLine = {
 const ButtonSyle={
     border: '1px solid',
     borderRadius: '50%',
-    height: '34px',
-    lineHeight: '34px',
-    width: '34px'
+    height: '15px',
+    width: '15px',
+    padding: '0',
+    marginTop: '8px'
 }
 
 const InputStyle={
@@ -24,10 +25,9 @@ const InputStyle={
 }
 const ColLine = {
     position: 'absolute',
-    top: '16px',
-    left: '-1px',
+    top: '0',
+    left: '0',
     borderLeft: '1px solid black',
-    height: '100%'
 }
 
 export {RowLine, ButtonSyle, InputStyle, ColLine} 
