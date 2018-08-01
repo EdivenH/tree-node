@@ -1,2 +1,1 @@
-# tree-node
-基于react+redux的树状图组件 
+react 的树状结构

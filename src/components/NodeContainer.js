@@ -9,16 +9,17 @@ class NodeContainer extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            nodes: this.props.nodes
+            nodes: this.props.nodes,
+            parentId: this.props.parentId
         }
     }
 
     handleAdd = () => {
-
         const node = {
-            id: shortId.generate(),
-            label: '',
-            nodeChild: []
+            id: 0,
+            parent_id: this.state.nodes&&this.state.nodes[0]?this.state.nodes[0].parent_id:0,
+            department_name: '',
+            childrens: []
         }
 
         this.setState((preState) => {
@@ -36,12 +37,12 @@ class NodeContainer extends Component {
     }
     handleChangeLabel = (index, value) => {
         const nodes = this.props.nodes
-        nodes[index].label = value
+        nodes[index].department_name = value
     }
-    static getDerivedStateFromProps(props, state){
-        console.log(this)
-        
-        return null
+    componentWillReceiveProps(nextProps){
+        this.setState({
+            nodes: nextProps.nodes
+        })
     }
     
     render() {
@@ -66,7 +67,8 @@ class NodeContainer extends Component {
                             // addNode={this.handleAdd}
                             deleteNode={this.handleDel}
                             changeLabel={this.handleChangeLabel}
-                            key={val.id}
+                            key={shortId.generate()}
+                            parentId={this.state.parentId}
                         />
                     )): null
                 }

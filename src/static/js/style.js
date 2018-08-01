@@ -10,10 +10,10 @@ const RowLine = {
 const ButtonSyle={
     border: '1px solid',
     borderRadius: '50%',
-    height: '15px',
     width: '15px',
     padding: '0',
-    marginTop: '8px'
+    marginTop: '8px',
+    lineHeight: '15px'
 }
 
 const InputStyle={
