@@ -11,7 +11,6 @@ const request = require('superagent');
 class App extends Component {
   constructor(props) {
     super(props)
-    // const data = fetchData() || []
     
     this.state = {
       nodes: [],
@@ -20,23 +19,6 @@ class App extends Component {
     }
   }
   componentDidMount(){
-    // fetch('/account/department/department-list-all', {
-    //   method: 'POST',
-    //   credentials: "same-origin"
-    // })
-    // .then(response => {
-    //   if(response.status >= 400){
-    //     throw new Error('Bad response from server!!')
-    //   }
-    //   return response.json()
-    // })
-    // .catch(error => console.log(error))
-    // .then(response => {
-    //   this.setState({
-    //     nodes: response.res_data.childrens,
-    //     loading: true
-    //   })
-    // })
 
     request.post('/account/department/department-list-all')
     .set('accept', 'json')
@@ -86,21 +68,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-// function fetchData() {
-//     fetch('/account/department/department-list-all', {
-//       method: 'POST'
-//     })
-//     .then((response) => {
-//       if(response.status !== 200){
-//         throw new Error('Bad response from server!!')
-//       }else{
-//         const nodes = response.json()
-//         return nodes
-//       }
-
-//     }, (error) => {
-//       throw new Error(error)
-//     })
-// }
