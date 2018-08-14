@@ -1,33 +1,42 @@
-
-const RowLine = {
-    display: 'inline-block',
-    width: '32px',
-    height: '0',
-    borderTop: '1px solid black',
-    marginTop: '16px'
-}
-
-const ButtonSyle={
-    border: '1px solid',
-    borderRadius: '50%',
-    width: '15px',
-    padding: '0',
-    marginTop: '8px',
-    lineHeight: '15px'
-}
-
-const InputStyle={
-    width: '180px',
-    height: '30px',
-    lineHeight: '30px',
-    padding: '0',
-    border: '1px solid'
-}
-const ColLine = {
+const SettingPanelStyle = {
     position: 'absolute',
+    left: '100%',
     top: '0',
-    left: '0',
-    borderLeft: '1px solid black',
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100px',
+    marginLeft: '10px',
+    zIndex: '100',
+    cursor: 'default',
+    color: '#787878',
+    padding: '4px 9px',
+    fontSize: '12px',
+    borderRadius: '2px',
+    boxShadow: '0 0 3px 0 #C8C8C8, 0 0 8px 0 rgba(0,0,0,.12)',
+    background: '#fff'
+}
+const SettingBackStyle = {
+    position: 'fixed',
+    height: '100%',
+    width: '100%',
+    top: '0',
+    zIndex: '50'
 }
 
-export {RowLine, ButtonSyle, InputStyle, ColLine} 
+const InputStyle = {
+    width: '60%',
+    height: '18px',
+    lineHeight: '18px',
+    color: '#000'
+}
+const dropStyle = {
+    border: '5px solid transparent',
+    borderTopColor: '#939599',
+    borderLeftColor: 'transparent',
+    width: '0',
+    height: '0',
+    marginRight: '10px'
+}
+
+
+export {SettingPanelStyle, SettingBackStyle, InputStyle, dropStyle}
