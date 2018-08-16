@@ -12,29 +12,55 @@ class Pagination extends Component{
         }
         return null
     }
-    handleChange = (e) => {
+
+    handleBlur = e => {
+        let value
+        if(e.target.value > this.state.total){
+            value = this.state.total
+        }else if(e.target.value < 1){
+            value = 1
+        }
+        this.setState({
+            currentID: value
+        }, () => {this.props.onChangeID(this.state.currentID)})
+    }
+    handleChange = e => {
         this.setState({
             currentID: e.target.value
-        }, () => {this.props.changeID()})
+        })
+    }
+
+    handleSwitchLeft = () => {
+        this.state.currentID !== 1 &&
+        this.setState(prevState => ({
+            currentID: +prevState.currentID - 1
+        }), () => {this.props.onChangeID(this.state.currentID)})
+    }
+    handleSwitchRight = () => {
+        this.state.currentID !== this.state.total &&
+        this.setState(prevState => ({
+            currentID: +prevState.currentID + 1
+        }), () => {this.props.onChangeID(this.state.currentID)})
     }
     render(){
         return (
             
             <ul className='Pagination Pagination-simple'>
                 <li>
-                    <i className='arrow arrow-left'></i>
+                    <i className='arrow arrow-left' onClick={this.handleSwitchLeft}></i>
                 </li>
                 <li className='pagination-index'>
                     <input
                         className='input-area'
                         type='text' 
                         value={this.state.currentID}
-                        onChange={this.handleChange} />
+                        onChange={this.handleChange}
+                        onBlur={this.handleBlur} />
                     <span className='split'>/</span>
                     <span>{this.state.total}</span>
                 </li>
                 <li>
-                    <i className='arrow arrow-right'></i>
+                    <i className='arrow arrow-right' onClick={this.handleSwitchRight}></i>
                 </li>
 
                 <style jsx>{`
@@ -53,6 +79,7 @@ class Pagination extends Component{
                             position: relative;
                             width: 24px;
                             height: 100%;
+                            cursor: pointer;
 
                             &-right{
                                 margin-left: 20px;

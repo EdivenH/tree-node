@@ -58,6 +58,7 @@ class NodeDetail extends Component{
         })
     }
     handleChangeID = (index) => {
+        console.log('GetIndex==>', index)
         this.setState({
             dataLogCurrentID: index
         })
@@ -102,7 +103,7 @@ class NodeDetail extends Component{
                                         }).map(val => (
                                             <li>
                                                 <span className='log-remark'>{val.remark}</span>
-                                                <span>{val.create_time}</span>
+                                                <span className='log-time'>{val.create_time}</span>
                                             </li>
                                         ))
                                     }
@@ -166,24 +167,39 @@ class NodeDetail extends Component{
                                 margin-bottom: -10px;
                             }
                             &-log{
-                                flex: 0 0 150px;
+                                flex: 0 0 200px;
                                 display: flex;
                                 flex-direction: column;
+                                font-size: 12px;
+                                color: rgba(0, 0, 0, 0.65);
 
                                 .log-content-ul{
                                     flex: 1;
                                     list-style-type: none;
                                     padding: 0 0 0 8px;
-                                    margin: 16px 0 8px 0;
+                                    margin: 12px 0 0 24px;
+
+                                    & > li{
+                                        margin: 8px 0;
+                                    }
 
                                     .log-remark{
-                                        max-width: 550px;
+                                        display: inline-block;
+                                        max-width: 500px;
                                         padding-right: 24px;
+                                        overflow: hidden;
+                                        text-overflow:ellipsis;
+                                        white-space: nowrap;
+                                    }
+                                    .log-time{
+                                        float: right;
+                                        margin-right: 24px;
                                     }
                                 }
                                 .log-pagination{
                                     height: 24px;
-                                    text-align: right;
+                                    display: flex;
+                                    justify-content: flex-end;
                                 }
                             }
                         }

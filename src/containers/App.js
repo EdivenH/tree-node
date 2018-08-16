@@ -20,123 +20,123 @@ class Department extends Component{
     }
     
     componentDidMount(){
-        const data ={
-            id: 0, 
-            department_name:'超级管理员', 
-            parent_id: 0, 
-            money: 10000,
-            department_msg: '我是超级管理员',
-            department_code: '007',
-            childrens: [
-                {id:1, 
-                department_name: '总部1', 
-                parent_id: 0, 
-                money: 100,
-                department_msg: '我是总部1',
-                department_code: '0071',
-                childrens: [
-                ]},
-                {id:1, 
-                    department_name: '总部2', 
-                    parent_id: 0, 
-                    money: 0,
-                    department_msg: '我是总部2',
-                    department_code: '0071',
-                    childrens: [
-                ]},
-                {id:1, 
-                    department_name: '总部3', 
-                    parent_id: 0, 
-                    money: 0,
-                    department_msg: '我是总部3',
-                    department_code: '0071',
-                    childrens: [
-                ]},
-                {id:1, 
-                    department_name: '总部4', 
-                    parent_id: 0, 
-                    money: 0,
-                    department_msg: '我是总部4',
-                    department_code: '0071',
-                    childrens: [
-                ]},
-                {id:1, 
-                    department_name: '总部5', 
-                    parent_id: 0, 
-                    money: 0,
-                    department_msg: '我是总部5',
-                    department_code: '0071',
-                    childrens: [
-                ]},
-                {id:1, 
-                    department_name: '总部5', 
-                    parent_id: 0, 
-                    money: 0,
-                    department_msg: '我是总部5',
-                    department_code: '0071',
-                    childrens: [
-                ]},
-                {id:1, 
-                    department_name: '总部5', 
-                    parent_id: 0, 
-                    money: 0,
-                    department_msg: '我是总部5',
-                    department_code: '0071',
-                    childrens: [
-                ]},
-                {id:1, 
-                    department_name: '总部5', 
-                    parent_id: 0, 
-                    money: 0,
-                    department_msg: '我是总部5',
-                    department_code: '0071',
-                    childrens: [
-                ]},
-                {id:1, 
-                    department_name: '总部5', 
-                    parent_id: 0, 
-                    money: 0,
-                    department_msg: '我是总部5',
-                    department_code: '0071',
-                    childrens: [
-                ]},
-                {id:1, 
-                    department_name: '总部5', 
-                    parent_id: 0, 
-                    money: 0,
-                    department_msg: '我是总部5',
-                    department_code: '0071',
-                    childrens: [
-                ]}
+        // const data ={
+        //     id: 0, 
+        //     department_name:'超级管理员', 
+        //     parent_id: 0, 
+        //     money: 10000,
+        //     department_msg: '我是超级管理员',
+        //     department_code: '007',
+        //     childrens: [
+        //         {id:1, 
+        //         department_name: '总部1', 
+        //         parent_id: 0, 
+        //         money: 100,
+        //         department_msg: '我是总部1',
+        //         department_code: '0071',
+        //         childrens: [
+        //         ]},
+        //         {id:1, 
+        //             department_name: '总部2', 
+        //             parent_id: 0, 
+        //             money: 0,
+        //             department_msg: '我是总部2',
+        //             department_code: '0071',
+        //             childrens: [
+        //         ]},
+        //         {id:1, 
+        //             department_name: '总部3', 
+        //             parent_id: 0, 
+        //             money: 0,
+        //             department_msg: '我是总部3',
+        //             department_code: '0071',
+        //             childrens: [
+        //         ]},
+        //         {id:1, 
+        //             department_name: '总部4', 
+        //             parent_id: 0, 
+        //             money: 0,
+        //             department_msg: '我是总部4',
+        //             department_code: '0071',
+        //             childrens: [
+        //         ]},
+        //         {id:1, 
+        //             department_name: '总部5', 
+        //             parent_id: 0, 
+        //             money: 0,
+        //             department_msg: '我是总部5',
+        //             department_code: '0071',
+        //             childrens: [
+        //         ]},
+        //         {id:1, 
+        //             department_name: '总部5', 
+        //             parent_id: 0, 
+        //             money: 0,
+        //             department_msg: '我是总部5',
+        //             department_code: '0071',
+        //             childrens: [
+        //         ]},
+        //         {id:1, 
+        //             department_name: '总部5', 
+        //             parent_id: 0, 
+        //             money: 0,
+        //             department_msg: '我是总部5',
+        //             department_code: '0071',
+        //             childrens: [
+        //         ]},
+        //         {id:1, 
+        //             department_name: '总部5', 
+        //             parent_id: 0, 
+        //             money: 0,
+        //             department_msg: '我是总部5',
+        //             department_code: '0071',
+        //             childrens: [
+        //         ]},
+        //         {id:1, 
+        //             department_name: '总部5', 
+        //             parent_id: 0, 
+        //             money: 0,
+        //             department_msg: '我是总部5',
+        //             department_code: '0071',
+        //             childrens: [
+        //         ]},
+        //         {id:1, 
+        //             department_name: '总部5', 
+        //             parent_id: 0, 
+        //             money: 0,
+        //             department_msg: '我是总部5',
+        //             department_code: '0071',
+        //             childrens: [
+        //         ]}
                 
-            ]
-        }
+        //     ]
+        // }
 
-        setTimeout(() => {
-            this.setState({
-                departments: {...data, isFetch: true},
-                departmentDetail: {...data}
-
-            })
-        }, 2000);
-
-
-        // request.post('/account/department/department-list-all')
-        // .set('accept', 'json')
-        // .set('Content-Type', 'application/x-www-form-urlencoded')
-        // .then(res => {
-        //   const data = JSON.parse(res.text).res_data
-        //   setTimeout(() => {
+        // setTimeout(() => {
         //     this.setState({
         //         departments: {...data, isFetch: true},
         //         departmentDetail: {...data}
-        //     })
-        //   }, 500);
 
-        // })
-        // .catch(err => {
-        //   console.log('数据请求错误===>', err)
-        // })
+        //     })
+        // }, 2000);
+
+
+        request.post('/account/department/department-list-all')
+        .set('accept', 'json')
+        .set('Content-Type', 'application/x-www-form-urlencoded')
+        .then(res => {
+          const data = JSON.parse(res.text).res_data
+          setTimeout(() => {
+            this.setState({
+                departments: {...data, isFetch: true},
+                departmentDetail: {...data}
+            })
+          }, 500);
+
+        })
+        .catch(err => {
+          console.log('数据请求错误===>', err)
+        })
 
     }
 
@@ -188,7 +188,7 @@ class Department extends Component{
                             float: left;
                             margin: 8px -130px 0 0;
                             max-height: 650px;
-                            min-height: 510px;
+                            min-height: 560px;
                             padding-right: 130px;
                             overflow: auto;
                             box-sizing: content-box;
@@ -201,7 +201,7 @@ class Department extends Component{
                         .department-detail{
                             border-left: 1px dotted #DCE1E6;
                             margin-left: 260px;
-                            min-height: 510px;
+                            min-height: 560px;
                         }
                     `}
                 </style>
